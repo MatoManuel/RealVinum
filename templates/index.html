@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Premium Spanish & Italian Wines—Just a Call Away</h1>
+        <p>Direct import of exceptional wines for restaurants and retail</p>
+        <div class="hero-cta">
+            <a href="tel:+1234567890" class="btn btn-primary">
+                <i class="fas fa-phone"></i> Call to Order: (123) 456-7890
+            </a>
+            <a href="{{ url_for('contact') }}" class="btn btn-secondary">Request an Account</a>
+        </div>
+    </div>
+</section>
+
+<section class="featured-wines container">
+    <h2>Featured Wines</h2>
+    <div class="wine-grid">
+        {% for wine in featured_wines %}
+        <div class="wine-card">
+            <div class="wine-image">
+                {% if wine.image_filename %}
+                <img src="{{ url_for('static', filename='uploads/' + wine.image_filename) }}" alt="{{ wine.name }}">
+                {% else %}
+                <img src="{{ url_for('static', filename='images/wine-placeholder.jpg') }}" alt="{{ wine.name }}">
+                {% endif %}
+            </div>
+            <div class="wine-info">
+                <h3>{{ wine.name }}</h3>
+                <p class="wine-producer">{{ wine.producer }}</p>
+                <div class="wine-meta">
+                    <span class="wine-vintage">{{ wine.vintage }}</span>
+                    <span class="wine-region">{{ wine.region.name }}, {{ wine.region.country }}</span>
+                </div>
+                <div class="wine-type">{{ wine.wine_type.name }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="view-all">
+        <a href="{{ url_for('products') }}" class="btn btn-secondary">View Full Catalog</a>
+    </div>
+</section>
+
+<section class="about-preview">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Real Vinum</h2>
+                <p>Real Vinum is a boutique importer of exceptional Spanish and Italian wines. We personally select each wine in our portfolio, working directly with small family-owned wineries that craft wines with character, authenticity, and a sense of place.</p>
+                <p>Our curated selection offers the perfect combination of quality, value, and story—giving your customers unique wines they won't find elsewhere.</p>
+                <a href="{{ url_for('about') }}" class="btn btn-tertiary">Learn More About Us</a>
+            </div>
+            <div class="about-image">
+                <img src="{{ url_for('static', filename='images/winery.jpg') }}" alt="Wine cellar">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-preview container">
+    <div class="contact-box">
+        <div class="contact-info">
+            <h2>Ready to Order?</h2>
+            <p>Placing an order is simple. Just give us a call or request an account to start exploring our exceptional selection of wines.</p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Call Directly</h3>
+                        <p>(123) 456-7890</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email Us</h3>
+                        <p>info@realvinum.com</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Business Hours</h3>
+                        <p>Monday-Friday: 9am-5pm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-action">
+            <a href="{{ url_for('contact') }}" class="btn btn-primary">Request an Account</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

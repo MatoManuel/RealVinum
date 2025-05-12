@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - Real Vinum{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>About Real Vinum</h1>
+    </div>
+</section>
+
+<section class="about-section container">
+    <div class="about-story">
+        <div class="about-image">
+            <img src="{{ url_for('static', filename='images/owner.jpg') }}" alt="Owner of Real Vinum">
+        </div>
+        <div class="about-text">
+            <h2>Our Story</h2>
+            <p>Real Vinum was founded on a simple passion: bringing exceptional, authentic wines from Spain and Italy to American tables. What began as a personal journey through the sunbaked vineyards of Spain and the rolling hills of Italy has evolved into a boutique importing business dedicated to sharing these discoveries.</p>
+            
+            <p>As a small, family-operated business, we personally select each wine in our portfolio, working directly with wineries that share our values of quality, authenticity, and tradition. Every bottle tells a story of the land, the people, and generations of winemaking heritage.</p>
+            
+            <h3>Our Commitment</h3>
+            <p>At Real Vinum, we believe in building relationships, not just conducting transactions. We partner with restaurants and retailers who appreciate the story behind each bottle and can communicate that passion to their customers.</p>
+            
+            <p>By keeping our operation small and focused, we maintain close relationships with both our suppliers and clients, ensuring consistent quality and personalized service that large distributors simply cannot match.</p>
+        </div>
+    </div>
+    
+    <div class="why-choose-us">
+        <h2>Why Choose Real Vinum?</h2>
+        
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-wine-glass-alt"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Expert Selection</h3>
+                    <p>Every wine in our portfolio has been personally tasted and selected, representing the best quality-to-value ratio in its category.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Direct Import</h3>
+                    <p>By importing directly from wineries, we eliminate middlemen, ensuring better prices and fresher inventory for our clients.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Personal Relationships</h3>
+                    <p>We know our producers by name and visit them regularly, developing relationships that give us access to limited production wines.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Unique Portfolio</h3>
+                    <p>Our focused selection includes wines you won't find from mainstream distributors, giving your business a competitive edge.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Personalized Service</h3>
+                    <p>When you call Real Vinum, you speak directly with the owner who knows every wine in the portfolio intimately.</p>
+                </div>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Story Behind Every Bottle</h3>
+                    <p>We provide the background and context for each wine, helping you engage customers with compelling narratives.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cta-box">
+        <h2>Ready to explore our selection?</h2>
+        <p>Browse our catalog or get in touch to discuss how our wines can enhance your business.</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('products') }}" class="btn btn-secondary">View Wine Catalog</a>
+            <a href="{{ url_for('contact') }}" class="btn btn-primary">Contact Us</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %}Wine Catalog - Real Vinum{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Wine Catalog</h1>
+    </div>
+</section>
+
+<section class="products-section container">
+    <div class="filters">
+        <form method="get" action="{{ url_for('products') }}" class="filter-form">
+            <div class="filter-group">
+                <label for="region">Region:</label>
+                <select name="region" id="region" onchange="this.form.submit()">
+                    <option value="">All Regions</option>
+                    {% for region in regions %}
+                    <option value="{{ region.id }}" {% if selected_region == region.id %}selected{% endif %}>
+                        {{ region.name }}, {{ region.country }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="type">Wine Type:</label>
+                <select name="type" id="type" onchange="this.form.submit()">
+                    <option value="">All Types</option>
+                    {% for type in wine_types %}
+                    <option value="{{ type.id }}" {% if selected_type == type.id %}selected{% endif %}>
+                        {{ type.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-small">Apply Filters</button>
+            <a href="{{ url_for('products') }}" class="btn btn-small btn-outline">Clear Filters</a>
+        </form>
+    </div>
+
+    <div class="wine-catalog">
+        {% if wines %}
+            <div class="wine-grid">
+                {% for wine in wines %}
+                <div class="wine-card detailed">
+                    <div class="wine-image">
+                        {% if wine.image_filename %}
+                        <img src="{{ url_for('static', filename='uploads/' + wine.image_filename) }}" alt="{{ wine.name }}">
+                        {% else %}
+                        <img src="{{ url_for('static', filename='images/wine-placeholder.jpg') }}" alt="{{ wine.name }}">
+                        {% endif %}
+                    </div>
+                    <div class="wine-info">
+                        <h3>{{ wine.name }}</h3>
+                        <p class="wine-producer">{{ wine.producer }}</p>
+                        <div class="wine-meta">
+                            <span class="wine-vintage">{{ wine.vintage }}</span>
+                            <span class="wine-region">{{ wine.region.name }}, {{ wine.region.country }}</span>
+                        </div>
+                        <div class="wine-type-badge {{ wine.wine_type.name.lower() }}">{{ wine.wine_type.name }}</div>
+                        
+                        <div class="wine-description">
+                            <p>{{ wine.description }}</p>
+                        </div>
+                        
+                        {% if wine.tasting_notes %}
+                        <div class="wine-notes">
+                            <h4>Tasting Notes:</h4>
+                            <p>{{ wine.tasting_notes }}</p>
+                        </div>
+                        {% endif %}
+                        
+                        <div class="wine-pricing">
+                            <div class="wholesale-price">
+                                <span class="label">Wholesale:</span>
+                                <span class="price">${{ "%.2f"|format(wine.price_wholesale) }}</span>
+                            </div>
+                            <div class="minimum-order">
+                                <span class="label">Min. Order:</span>
+                                <span class="value">{{ wine.minimum_order }} unit{% if wine.minimum_order != 1 %}s{% endif %}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="wine-actions">
+                            <a href="tel:+1234567890" class="btn btn-primary btn-small">
+                                <i class="fas fa-phone"></i> Call to Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-results">
+                <p>No wines match your current filter selection. Please try different filters.</p>
+                <a href="{{ url_for('products') }}" class="btn btn-secondary">View All Wines</a>
+            </div>
+        {% endif %}
+    </div>
+    
+    <div class="ordering-info">
+        <h3>How to Order</h3>
+        <p>To place an order, please call us at <a href="tel:+1234567890">(123) 456-7890</a> during business hours, or <a href="{{ url_for('contact') }}">submit an inquiry</a> and we'll get back to you promptly.</p>
+        <p>Minimum orders may apply, and all prices are wholesale only.</p>
+    </div>
+</section>
+{% endblock %}

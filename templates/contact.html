@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - Real Vinum{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Contact Us</h1>
+    </div>
+</section>
+
+<section class="contact-section container">
+    <div class="contact-columns">
+        <div class="contact-info-column">
+            <div class="contact-info-box">
+                <h2>Get In Touch</h2>
+                <p>Ready to place an order or have questions about our wines? We're here to help.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="method-details">
+                            <h3>Call Us</h3>
+                            <p>The fastest way to place an order:</p>
+                            <a href="tel:+1234567890" class="contact-link">(123) 456-7890</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="method-details">
+                            <h3>Email Us</h3>
+                            <p>For inquiries and information:</p>
+                            <a href="mailto:info@realvinum.com" class="contact-link">info@realvinum.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="method-details">
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 9am - 5pm<br>
+                            Saturday - Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ordering-info">
+                    <h3>Ordering Information</h3>
+                    <ul>
+                        <li>We sell to licensed businesses only</li>
+                        <li>Minimum orders may apply</li>
+                        <li>Delivery available in select areas</li>
+                        <li>Please allow 2-3 business days for order processing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-form-column">
+            <div class="form-container">
+                <h2>Request an Account</h2>
+                <p>Interested in our wines? Complete this form to request an account and we'll be in touch shortly.</p>
+                
+                <form method="POST" action="{{ url_for('contact') }}">
+                    {{ form.csrf_token }}
+                    
+                    <div class="form-group">
+                        {{ form.name.label }}
+                        {{ form.name(class="form-control") }}
+                        {% if form.name.errors %}
+                            <div class="errors">
+                                {% for error in form.name.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.business_name.label }}
+                        {{ form.business_name(class="form-control") }}
+                        {% if form.business_name.errors %}
+                            <div class="errors">
+                                {% for error in form.business_name.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.email.label }}
+                        {{ form.email(class="form-control") }}
+                        {% if form.email.errors %}
+                            <div class="errors">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.phone.label }}
+                        {{ form.phone(class="form-control") }}
+                        {% if form.phone.errors %}
+                            <div class="errors">
+                                {% for error in form.phone.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.message.label }}
+                        {{ form.message(class="form-control", rows=5, placeholder="Tell us about your business and your wine interests...") }}
+                        {% if form.message.errors %}
+                            <div class="errors">
+                                {% for error in form.message.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="form-actions">
+                        {{ form.submit(class="btn btn-primary") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
