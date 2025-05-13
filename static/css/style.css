@@ -1,0 +1,1045 @@
+/* styles.css for Real Vinum - Premium Wine Importer */
+
+/* -------------------- GLOBAL STYLES -------------------- */
+:root {
+    --primary-color: #8B0000; /* Deep red */
+    --secondary-color: #222222; /* Off-black */
+    --accent-color: #D4AF37; /* Gold */
+    --light-color: #F5F5F5; /* Off-white */
+    --medium-color: #E0E0E0; /* Light gray */
+    --dark-color: #111111; /* Almost black */
+    --font-primary: 'Playfair Display', Georgia, serif;
+    --font-secondary: 'Raleway', Arial, sans-serif;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-secondary);
+    color: #333;
+    line-height: 1.6;
+    background-color: var(--light-color);
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+  }
+  
+  a:hover {
+    color: var(--accent-color);
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* -------------------- BUTTONS -------------------- */
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #770000;
+    color: white;
+  }
+  
+  .btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #000;
+    color: white;
+  }
+  
+  .btn-tertiary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+  }
+  
+  .btn-tertiary:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .btn-small {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--medium-color);
+    color: var(--dark-color);
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--medium-color);
+  }
+  
+  /* -------------------- HEADER -------------------- */
+  header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+  }
+  
+  .logo img {
+    height: 60px;
+  }
+  
+  .header-contact {
+    margin-right: 20px;
+  }
+  
+  .phone-number {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin-left: 30px;
+  }
+  
+  nav ul li a {
+    color: var(--secondary-color);
+    font-weight: 500;
+    padding-bottom: 5px;
+    position: relative;
+  }
+  
+  nav ul li a:hover {
+    color: var(--primary-color);
+  }
+  
+  nav ul li a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+  }
+  
+  nav ul li a:hover:after {
+    width: 100%;
+  }
+  
+  nav ul li a.active {
+    color: var(--primary-color);
+  }
+  
+  nav ul li a.active:after {
+    width: 100%;
+  }
+  
+  /* -------------------- HERO SECTION -------------------- */
+  .hero {
+    height: 70vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+  }
+  
+  .hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  /* -------------------- FEATURED WINES -------------------- */
+  .featured-wines {
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .featured-wines h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+  }
+  
+  .featured-wines h2:after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .wine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .wine-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .wine-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  .wine-image {
+    height: 280px;
+    overflow: hidden;
+  }
+  
+  .wine-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .wine-card:hover .wine-image img {
+    transform: scale(1.05);
+  }
+  
+  .wine-info {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .wine-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+  }
+  
+  .wine-producer {
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #666;
+  }
+  
+  .wine-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+  }
+  
+  .wine-vintage {
+    font-weight: bold;
+  }
+  
+  .wine-region {
+    color: #666;
+  }
+  
+  .wine-type {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--medium-color);
+    color: var(--secondary-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .wine-type-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  
+  .wine-type-badge.red {
+    background-color: rgba(139, 0, 0, 0.1);
+    color: var(--primary-color);
+  }
+  
+  .wine-type-badge.white {
+    background-color: rgba(245, 245, 220, 0.7);
+    color: #8B8000;
+  }
+  
+  .wine-type-badge.rosé {
+    background-color: rgba(255, 192, 203, 0.2);
+    color: #FF69B4;
+  }
+  
+  .wine-type-badge.sparkling {
+    background-color: rgba(173, 216, 230, 0.2);
+    color: #4682B4;
+  }
+  
+  .wine-description {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+  }
+  
+  .wine-notes {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+  }
+  
+  .wine-notes h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .wine-pricing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px 0;
+    border-top: 1px solid var(--medium-color);
+    border-bottom: 1px solid var(--medium-color);
+  }
+  
+  .wine-pricing .label {
+    font-size: 0.8rem;
+    color: #666;
+  }
+  
+  .wine-pricing .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+  }
+  
+  .wine-actions {
+    margin-top: 20px;
+  }
+  
+  .view-all {
+    margin-top: 20px;
+  }
+  
+  /* -------------------- ABOUT PREVIEW -------------------- */
+  .about-preview {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 80px 0;
+  }
+  
+  .about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .about-text {
+    flex: 1;
+  }
+  
+  .about-text h2 {
+    color: white;
+    margin-bottom: 25px;
+    font-size: 2.3rem;
+  }
+  
+  .about-text p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+  
+  .about-image {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  }
+  
+  /* -------------------- CONTACT PREVIEW -------------------- */
+  .contact-preview {
+    padding: 80px 0;
+  }
+  
+  .contact-box {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  .contact-info {
+    flex: 2;
+  }
+  
+  .contact-info h2 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+  }
+  
+  .contact-info p {
+    margin-bottom: 25px;
+  }
+  
+  .contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .contact-method i {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+  }
+  
+  .contact-method h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .contact-method p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+  
+  .contact-action {
+    flex: 1;
+    text-align: center;
+  }
+  
+  /* -------------------- PAGE HEADER -------------------- */
+  .page-header {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/page-header.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .page-header h1 {
+    font-size: 3rem;
+    color: white;
+  }
+  
+  /* -------------------- ABOUT PAGE -------------------- */
+  .about-section {
+    padding: 80px 0;
+  }
+  
+  .about-story {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  
+  .about-story .about-image {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .about-story .about-text {
+    flex: 2;
+  }
+  
+  .about-story h2 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+  
+  .about-story h3 {
+    font-size: 1.5rem;
+    margin: 25px 0 15px;
+  }
+  
+  .about-story p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+  }
+  
+  .why-choose-us {
+    margin-bottom: 60px;
+  }
+  
+  .why-choose-us h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .why-choose-us h2:after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .feature {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .feature-icon i {
+    color: white;
+    font-size: 1.2rem;
+  }
+  
+  .feature-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .cta-box {
+    background: var(--medium-color);
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .cta-box h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .cta-box p {
+    margin-bottom: 25px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  /* -------------------- PRODUCTS PAGE -------------------- */
+  .products-section {
+    padding: 60px 0;
+  }
+  
+  .filters {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+  }
+  
+  .filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+  }
+  
+  .filter-group {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .filter-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--medium-color);
+    border-radius: 4px;
+    font-family: var(--font-secondary);
+  }
+  
+  .wine-catalog {
+    margin-bottom: 40px;
+  }
+  
+  .wine-card.detailed {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .wine-card.detailed .wine-image {
+    height: 250px;
+  }
+  
+  .no-results {
+    text-align: center;
+    padding: 40px 0;
+  }
+  
+  .ordering-info {
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .ordering-info h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+  
+  .ordering-info p {
+    margin-bottom: 10px;
+  }
+  
+  .ordering-info a {
+    font-weight: 600;
+  }
+  
+  /* -------------------- CONTACT PAGE -------------------- */
+  .contact-section {
+    padding: 60px 0;
+  }
+  
+  .contact-columns {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .contact-info-column, .contact-form-column {
+    flex: 1;
+  }
+  
+  .contact-info-box {
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    height: 100%;
+  }
+  
+  .contact-info-box h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+  
+  .contact-info-box p {
+    margin-bottom: 25px;
+  }
+  
+  .contact-link {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .ordering-info {
+    margin-top: 25px;
+  }
+  
+  .ordering-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  
+  .ordering-info ul {
+    list-style-position: inside;
+    margin-bottom: 0;
+  }
+  
+  .ordering-info li {
+    margin-bottom: 5px;
+  }
+  
+  .form-container {
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .form-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+  
+  .form-container p {
+    margin-bottom: 25px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--medium-color);
+    border-radius: 4px;
+    font-family: var(--font-secondary);
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.2);
+  }
+  
+  .errors {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }
+  
+  .form-actions {
+    margin-top: 30px;
+  }
+  
+  /* -------------------- FLASH MESSAGES -------------------- */
+  .flashes {
+    margin: 20px auto;
+  }
+  
+  .flash {
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .flash.success {
+    background-color: #DFF0D8;
+    border: 1px solid #D6E9C6;
+    color: #3C763D;
+  }
+  
+  .flash.error {
+    background-color: #F2DEDE;
+    border: 1px solid #EBCCD1;
+    color: #A94442;
+  }
+  
+  /* -------------------- FOOTER -------------------- */
+  footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 60px 0 20px;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .footer-content h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+  
+  .footer-content p {
+    margin-bottom: 10px;
+    color: #ccc;
+  }
+  
+  .footer-content i {
+    margin-right: 10px;
+    color: var(--accent-color);
+  }
+  
+  .footer-links ul {
+    list-style: none;
+  }
+  
+  .footer-links ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links ul li a {
+    color: #ccc;
+  }
+  
+  .footer-links ul li a:hover {
+    color: white;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .license-badges {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #999;
+    font-size: 0.9rem;
+  }
+  
+  .partner-logos {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .copyright {
+    color: #999;
+    font-size: 0.9rem;
+  }
+  
+  /* -------------------- 404 & 500 ERROR PAGES -------------------- */
+  .error-page {
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  .error-page h1 {
+    font-size: 5rem;
+    margin-bottom: 30px;
+  }
+  
+  .error-page p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  /* -------------------- MEDIA QUERIES -------------------- */
+  @media (max-width: 992px) {
+    .about-content, .about-story {
+      flex-direction: column;
+    }
+    
+    .contact-box {
+      flex-direction: column;
+    }
+    
+    .contact-action {
+      width: 100%;
+    }
+    
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+      padding: 15px 0;
+    }
+    
+    .header-contact {
+      margin: 15px 0;
+    }
+    
+    nav ul {
+      margin-top: 15px;
+    }
+    
+    nav ul li {
+      margin: 0 10px;
+    }
+    
+    .hero {
+      height: auto;
+      padding: 80px 0;
+    }
+    
+    .contact-columns {
+      flex-direction: column;
+    }
+    
+    .contact-info-column {
+      margin-bottom: 30px;
+    }
+    
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .license-badges {
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .hero-cta {
+      flex-direction: column;
+    }
+    
+    .btn {
+      width: 100%;
+    }
+    
+    .filter-form {
+      flex-direction: column;
+    }
+    
+    .filter-group {
+      width: 100%;
+    }
+  }
+  
+  /* Add custom tagline styling */
+  .tagline {
+    display: inline-block;
+    font-style: italic;
+    font-family: var(--font-primary);
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-top: -15px;
+    margin-bottom: 25px;
+  }
+  
+  /* Subtle animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animated {
+    animation: fadeIn 0.6s ease forwards;
+  }
+  
+  /* Wine ribbon for featured wines */
+  .featured-ribbon {
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 30px;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .wine-card {
+    position: relative;
+    overflow: hidden;
+  }
